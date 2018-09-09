@@ -81,8 +81,11 @@ String
 StringBuffer
 StringBuilder
 System
-Thread
+Scanner
+Random
+System
 Does java support multiple inheritance, explain why or why not?
+Ans:-> Ja
 What is method overloading and when it happens?
 Explain exceptions in java and how to handle it.
 What is static keyword in java? How it has been used in variables and methods ?
