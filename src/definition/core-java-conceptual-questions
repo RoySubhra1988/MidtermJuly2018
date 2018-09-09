@@ -13,19 +13,75 @@ What are the IDEs available in the market to support java?
 Ans:-> Eclipse , IntelliJ, netBeans, JCreator, BlueJ, BorlandJBuilder, Dr.Java.
 
 Explain the entire java life cycle.
-Ans:-> Java Code is written in a text editor or in Any java IDE 
+Ans:-> Java Code is written in a text editor or in Any java IDE and saveed as dot(.) java extension wich is then compiled by using java complier and create a .class file. Class file contains bytecodes. The class file then load iton the JVM using java loader. Finally JVM reads the bytecodes in memory and translate them into machine code for us to see the output.
+
 what is class?
+Ans:-> Class is a blueprint of an object. in other words we can say that class is a template that is used to create objects, and to define object data types and methods.
+
 What is object?
+Ans:-> Object is an instance of a class. Object determines the behavior of the class.
+
 What is the entry point of an application?
+Ans:-> The main method is the entry point of an application.
+
 Why main is static?
+Ans:-> The main method is static because it can be invoked by the runtime engine without having to instantiate an instance bof the parent class.
+
 Which class is the superclass of all classes?
+Ans:-> java.lang.object is a superclass of all class.
+
 What is difference between path and classpath variables?
+Ans:->1). Path is an environment variable which is used by the operating system to find the executables.
+
+      Classpath is an environment variable which is used by the Java compiler to find the path, of classes.ie in J2EE we give the path of jar files.
+
+
+      2). PATH is nothing but setting up an environment for operating system. Operating System will look in this PATH for executables.
+
+      Classpath is nothing but setting up the environment for Java. Java will use to find compiled classes
+
+      3). Path refers to the system while classpath refers to the Developing Envornment.
+
+      4). In path we set the path of executables while in classpath we set path of jars for compiling classes.
+
 What is the difference between an Interface and Abstract class?
+Ans:-> In interface, we can only declare methods which are abstract but in abstract class, method can be abstract and non­abstract.
+
 Can you make an Object from an Interface and Abstract class ? if not how do you use it ?
+Ans:-> No, Because we can't create an object from any abstract class.
+
 what is Access Specifier?
+Ans:->  access Specifier just basically gives us access to the class.
+
 What is OOP ? Define each feature of java OOP.
+Ans:-> OOP stands for Object Oriented Programming. Object-Oriented Programming is a methodology to design a program using classes and objects.
+There are four features in OOP
+
+=> Abstraction -> Abstraction is implementation hiding. We use abstract class and interface to achieve abstraction.
+=> Inheritance -> Inheritance is a way to aquire properties from one class to another class. It provides code reusability.
+=> Encapsulation -> Encapsulation is data hiding. We hide data by making the variables private.
+=> Polymorphism -> Polymorphism is basically an ability to take on many forms. There are two types of polymorphism (Method overloading, Method over writing)
+
 What is Java Package and which package is imported by default?
+Ans:-> The java.lang package is always imported by default as it is loaded internally by the JVM.
+
 What is API? Name list of API that you have used so far.
+ANs:-> Java API is a list of all the classes that are part of the Java Development Kit(JDK). It includes all Java packages, classes, and interfaces, along with their methods, fields, and constructors.
+Iterator
+List
+ListIterator
+Map
+Map.Entry
+ObjectInput
+ObjectInputValidation
+ObjectOutput
+ObjectStreamConstants
+Serializable
+String
+StringBuffer
+StringBuilder
+System
+Thread
 Does java support multiple inheritance, explain why or why not?
 What is method overloading and when it happens?
 Explain exceptions in java and how to handle it.
