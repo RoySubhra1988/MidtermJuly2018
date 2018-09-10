@@ -1,7 +1,6 @@
 package parser;
 
 import databases.ConnectToMongoDB;
-import databases.ConnectToSqlDB;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -59,22 +58,27 @@ public class ProcessStudentInfo {
 				seleniumStudents = xmlReader.parseData(tag, pathSelenium);
 
 				//Parse Data using parseData method and then store data into Qtp ArrayList.
-				
+
+				qtpStudents = xmlReader.parseData(tag,pathQtp);
+
 				//add Selenium ArrayList data into map.
+				list.put("Selenium Students", seleniumStudents);
 			
 				//add Qtp ArrayList data into map.
-		
+				list.put("QTP Students", qtpStudents);
 		      	
 				//Retrieve map data and display output.
-
+				for (Map.Entry<String, List<Student>> st : list.entrySet()) {
+					System.out.println(st);
+				}
 
 
 				//Store Qtp data into Qtp table in Database
-				connectToMongoDB.insertIntoMongoDB(seleniumStudents,"qtp");
+				connectToMongoDB.insertIntoMongoDB(seleniumStudents,"Selenium");
 				//connectToSqlDB.insertDataFromArrayListToMySql(seleniumStudents, "qtp","studentList");
 
 				//Store Selenium data into Selenium table in Database
-
+				connectToMongoDB.insertIntoMongoDB(qtpStudents,"QTP");
 				//Retrieve Qtp students from Database
                List<Student> stList = connectToMongoDB.readStudentListFromMongoDB("qtp");
                for(Student st:stList){

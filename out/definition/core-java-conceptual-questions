@@ -85,10 +85,18 @@ Scanner
 Random
 System
 Does java support multiple inheritance, explain why or why not?
-Ans:-> Ja
+Ans:-> No.
+
 What is method overloading and when it happens?
+Ans:-> When same method takes different signature it is called method overloading it happen within class.
+
 Explain exceptions in java and how to handle it.
+Ans:-> The term exception is shorthand for the phrase "exceptional event."An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions.
+
 What is static keyword in java? How it has been used in variables and methods ?
+Ans:-> The static keyword denotes that a member variable, or method, can be accessed without requiring
+an instantiation of the class to which it belongswhen static key word is used with a method that method can
+be called without creating a object.
 What is final and how it has been used variables and methods?
 What is final, finally and finalize?
 What is a constructor ?
