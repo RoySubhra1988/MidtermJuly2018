@@ -9,6 +9,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -105,6 +106,22 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
+    public void insertDataFromMapToMySql(Map<String, List<String>> list, String tableName, String columnName)
+    {
+        try {
+            connectToSqlDatabase();
+            ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
+            ps.setString(1, String.valueOf(list));
+            ps.executeUpdate();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void insertDataFromStringToSqlTable(String ArrayData, String tableName, String columnName)
     {

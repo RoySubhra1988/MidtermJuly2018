@@ -38,7 +38,7 @@ public class ConnectToMongoDB {
         return profile + " has been registered";
     }
 
-    public String insertIntoMongoDB(List<Student> student,String profileName){
+    public String insertIntoMongoDB(List<Student> student, String profileName){
         MongoDatabase mongoDatabase = connectToMongoDB();
         MongoCollection myCollection = mongoDatabase.getCollection(profileName);
         boolean collectionExists = mongoDatabase.listCollectionNames()
