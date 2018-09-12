@@ -22,7 +22,7 @@ public class Numbers {
 
 	public static void main(String[] args) throws Exception {
 		
-		int [] num = new int[100000];
+		int [] num = new int[1000000];
 		storeRandomNumbers(num);
 		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		//Selection Sort
@@ -73,7 +73,9 @@ public class Numbers {
 		randomize (num, n);
 
 		//quick sort
-		algo.quickSort(num, findLow(num), findHigh(num));
+		int low= 0;
+		int high = num.length-1;
+		algo.quickSort(num, low, high);
 		long quickSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Quick Sort take: " + quickSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "quick_sort", "SortingNumbers");
@@ -105,8 +107,8 @@ public class Numbers {
 	public static int findLow(int[] array){
 		int low = array[0];
 		for(int n: array){
-			if(array[n] < low){
-				low = array[n];
+			if(n < low){
+				low = n;
 			}
 		}
 		return low;
@@ -115,8 +117,8 @@ public class Numbers {
 	public static int findHigh(int[] array){
 		int high = array[0];
 		for(int n: array){
-			if(array[n] > high){
-				high = array[n];
+			if(n > high){
+				high = n;
 			}
 		}
 		return high;

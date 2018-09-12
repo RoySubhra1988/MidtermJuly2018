@@ -29,7 +29,7 @@ public class DataReader {
 		 * Use For Each loop/while loop/Iterator to retrieve data.
 		 */
 
-		String textFile = System.getProperty("/Users/subhra/MIdterm/MidtermJuly2018/src/data/self-driving-car");
+		String textFile = System.getProperty("/Users/subhra/MIdterm/MidtermJuly2018/src/data/self-driving-car.txt");
 
 		BufferedReader br = null;
 		try {

@@ -3,10 +3,10 @@ package algorithm;
 public class Sort {
 
     long executionTime = 0;
-	/*
-	 * Please implement all the sorting algorithm. Feel free to add helper methods.
-	 * Store all the sorted data into one of the databases.
-	 */
+    /*
+     * Please implement all the sorting algorithm. Feel free to add helper methods.
+     * Store all the sorted data into one of the databases.
+     */
 
 
     public int[] selectionSort(int [] array){
@@ -133,35 +133,45 @@ public class Sort {
 
 
     //Quick Sort
-    public int [] quickSort(int [] array, int low, int high){
-        final long startTime = System.currentTimeMillis();
-        int [] list = array;
-        //implement here
-        if(low < high){
-            int next = partition(array, low, high);
-            quickSort(array, low, next-1);
-            quickSort(array, next+1, high);
-        }
-        final long endTime = System.currentTimeMillis();
-        final long executionTime = endTime - startTime;
-        this.executionTime = executionTime;
-        return list;
-    }
-    public int partition(int array[], int p, int r){
-        int part = p-1;
-        int pivot = array[r];
-        for(int i=p; i <= r; i++){
-            if(array[i] <= pivot){
-                part++;
-                if(part != i){
-                    array[part] = array[part] ^ array[i];
-                    array[i] = array[part] ^ array[i];
-                    array[part] = array[part] ^ array[i];
-                }
+    public static void quickSort(int[] arr, int low, int high) {
+        if (arr == null || arr.length == 0)
+            return;
+
+        if (low >= high)
+            return;
+
+        // pick the pivot
+        int middle = low + (high - low) / 2;
+        int pivot = arr[middle];
+
+        // make left < pivot and right > pivot
+        int i = low, j = high;
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                i++;
+            }
+
+            while (arr[j] > pivot) {
+                j--;
+            }
+
+            if (i <= j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
             }
         }
-        return part;
+
+        // recursively sort two sub parts
+        if (low < j)
+            quickSort(arr, low, j);
+
+        if (high > i)
+            quickSort(arr, i, high);
     }
+
 
 
     //Heap Sort
