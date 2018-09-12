@@ -2,10 +2,7 @@ package datastructure;
 
 import databases.ConnectToSqlDB;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,21 +26,30 @@ public class DataReader {
 		 * Use For Each loop/while loop/Iterator to retrieve data.
 		 */
 
-		String textFile = System.getProperty("/Users/subhra/MIdterm/MidtermJuly2018/src/data/self-driving-car.txt");
-
+		String textFile = "/Users/subhra/MIdterm/MidtermJuly2018/src/data/self-driving-car";
+		File file = new File(textFile);
 		BufferedReader br = null;
+		String line = "";
+		String store = "";
+
+
 		try {
-			br = new BufferedReader(new FileReader(textFile));
-		} catch (FileNotFoundException e) {
+
+			FileReader fr = new FileReader(textFile);
+			br = new BufferedReader(fr);
+
+
+
+			while ((line = br.readLine()) != null) {
+				store+=line;
+			}
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		String text ;
-		while ((text = br.readLine())!=null){
-			System.out.println(text);
-		}
-
 		Stack<String> wrdMap = new Stack<String>();
+		LinkedList<String> linkedList = new LinkedList<>();
 		String[] splitWords = textFile.split(" ");
 
 		for (String word : splitWords) {
@@ -55,6 +61,28 @@ public class DataReader {
 		}
 		wrdMap.push(textFile);
 		System.out.println(wrdMap);
+
+		String[] storeArray = store.split(" ");
+		List<String> storeList = new LinkedList<String>();
+		Stack<String> storeStack = new Stack<String>();
+
+		for (String element: storeArray) {
+			storeList.add(element);
+			storeStack.push(element);
+		}
+		System.out.println("\n\nLinkedlist LIFO:");
+		Iterator<String> itr = storeList.iterator();
+		while (itr.hasNext()){
+			System.out.print(itr.next()+" ");
+		}
+		System.out.println("\n\nStack LIFO:");
+
+		while (!storeStack.isEmpty())
+		{
+			System.out.print(storeStack.pop() + " ");
+		}
+
+
 
 	}
 

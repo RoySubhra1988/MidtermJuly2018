@@ -24,10 +24,11 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 	static String companyName;
 	private String name;
 	private int employeeID;
-	private int employeeAge;
 	public int salary;
 	private int performance;
-	static String address;
+	public static int years;
+	public  double Salary;
+	private String dept;
 
 	public static String getCompanyName() {
 		return companyName;
@@ -57,10 +58,10 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 
 	}
 
-	public EmployeeInfo(String name, int employeeId, int employeeAge) {
+	public EmployeeInfo(String name, int employeeId, double Salary) {
 		this.name = name;
 		this.employeeID = employeeId;
-		this.employeeAge = employeeAge;
+		this.Salary = Salary;
 
 	}
 
@@ -73,14 +74,23 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 	 * So you probably need to send 2 arguments.
 	 *
 	 */
-	public static double calculateEmployeeBonus(int salary, int performance) {
-		double total = 0;
-		if (performance >= 7) {
-			total = salary * .1;
-		} else {
-			total = salary * .08;
+	public static double calculateEmployeeBonus(double Salary) {
+		double performence = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please Enter How Mny years worked");
+		years = sc.nextInt();
 
+		if (years >= 5){
+			performence = .20;
+		}else if (years <= 4 && years >= 3){
+			performence = .10;
+		}else if (years <= 2 && years >= 1 ){
+			performence = .05;
+		}else {
+			System.out.println("Sorry Bonuses are only for employees that have worked more than a year");
 		}
+		double total = (Salary * performence);
+
 		System.out.println("Epmloyees bonus is " + total + " $");
 		return total;
 	}
@@ -103,19 +113,21 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 
 		//implement numbers of year from above two dates
 		//Calculate pension
-		String startYear = convertedJoiningDate.substring(convertedJoiningDate.length() - 4);
-		String currentYear = convertedTodaysDate.substring(convertedTodaysDate.length() - 4);
+
+			String startYear = convertedJoiningDate.substring(convertedJoiningDate.length() - 4);
+			String currentYear = convertedTodaysDate.substring(convertedTodaysDate.length() - 4);
 		int start = Integer.parseInt(startYear);
 		int current = Integer.parseInt(currentYear);
 
-		if ((current - start) == 1) {
+		if ((current - start) >= 5) {
 			total = salary * .05;
 
-		} else if ((current - start) == 2) {
+		} else if ((current - start) >= 8) {
 			total = salary * .1;
 
-		} else if ((current - start) <= 1) {
+		} else if ((current - start) <= 2) {
 			total = 0;
+			System.out.println("Sorry you have to work more than 5 years to be eligible for pension ! ");
 		}
 		System.out.println("Employee Pension is " + total + " $");
 		return total;
@@ -148,16 +160,36 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 	}
 
 	@Override
-	public int calculateSalary() {
-		int MonthlySalary = 5000;
-		int Salary = MonthlySalary * 12;
-		System.out.println(salary);
-		return Salary;
+	public void calculateSalary() {
+
+
 	}
 
 	@Override
 	public void benefitLayout() {
 		System.out.println("Employee will get all the benefits");
+
+	}
+
+	public String getDept() {
+
+		return null;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+
+
+	public String getEthnicity() {
+		return null;
+	}
+
+	public String getHeight() {
+		return null;
+	}
+
+	public void groceryBudget() {
+		System.out.println("My yearly Grocery Bill is "+(double)(this.Salary*.05)+" Dollars");
 
 	}
 

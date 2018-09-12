@@ -228,13 +228,13 @@ public class ConnectToSqlDB {
         }
     }
 
-    public void createTableFromStringToMySql(String tableName, String columnName) {
+    public void createTableFromStringToMySql(String tableName, String columnName1, String columnName2) {
 
         try {
             connectToSqlDatabase();
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `" + tableName + "`;");
             ps.executeUpdate();
-            ps = connect.prepareStatement("CREATE TABLE `" + tableName + "` (`ID` int(11) NOT NULL AUTO_INCREMENT,`" + columnName + "` varchar(2500) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps = connect.prepareStatement("CREATE TABLE `" + tableName + "` (`ID` int(11) NOT NULL AUTO_INCREMENT,`" + columnName1 + "` varchar(2500) DEFAULT NULL,  PRIMARY KEY (`ID`) );"+ columnName1 + "` varchar(2500) DEFAULT NULL" );
             ps.executeUpdate();
         } catch (IOException e) {
             e.printStackTrace();
@@ -273,8 +273,8 @@ public class ConnectToSqlDB {
             Statement statement = mycon.createStatement();
 
             // Write the sql query and execute it
-            String sql = "Insert into Students(employeeRecord, employeeName,studentsID)" +
-                    "values (01,'Masum Rahman','01-09-1989')";
+            String sql = "Insert into Students(employeeRecord, employeeName,employeeSalary)" +
+                    "values ('?/?')";
             statement.executeUpdate(sql);
 
             // Process the result set
