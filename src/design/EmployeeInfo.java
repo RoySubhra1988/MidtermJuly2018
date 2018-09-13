@@ -2,7 +2,7 @@ package design;
 
 import java.util.Scanner;
 
-public class EmployeeInfo extends AbstractEmployee implements Employee {
+public class EmployeeInfo extends AbstractEmployee  {
 	public static Object nameClass;
 
 	/*This class can be implemented from Employee interface then add additional methods in EmployeeInfo class.
@@ -24,7 +24,7 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 	static String companyName;
 	private String name;
 	private int employeeID;
-	public int salary;
+	private int salary;
 	private int performance;
 	public static int years;
 	public  double Salary;
@@ -74,8 +74,9 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 	 * So you probably need to send 2 arguments.
 	 *
 	 */
-	public static double calculateEmployeeBonus(double Salary) {
-		double performence = 0;
+	public static double calculateEmployeeBonus(double Salary, double performence) {
+
+		performence = 0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please Enter How Mny years worked");
 		years = sc.nextInt();
@@ -143,12 +144,12 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 		return name;
 	}
 
-	@Override
 	public int employeeId() {
+
 		return 0;
 	}
 
-	@Override
+
 	public String employeeName() {
 		return null;
 	}
@@ -162,10 +163,21 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 	@Override
 	public void calculateSalary() {
 
+	}
+
+	public String assignDepartment(String dept) {
+		this.dept = dept;
+
+
+	return dept;
+	}
+
+
+	public void calculateSalary(double Salary) {
 
 	}
 
-	@Override
+
 	public void benefitLayout() {
 		System.out.println("Employee will get all the benefits");
 
@@ -192,6 +204,30 @@ public class EmployeeInfo extends AbstractEmployee implements Employee {
 		System.out.println("My yearly Grocery Bill is "+(double)(this.Salary*.05)+" Dollars");
 
 	}
+	public int getEmployeeID() {
+		return employeeID;
+	}
+
+	public void setEmployeeID(int employeeID) {
+		this.employeeID = employeeID;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public int getPerformance() {
+		return performance;
+	}
+
+	public void setPerformance(int performance) {
+		this.performance = performance;
+	}
+
 
 
 	private static class DateConversion {
