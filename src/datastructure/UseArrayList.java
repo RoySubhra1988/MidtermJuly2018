@@ -14,58 +14,67 @@ public class UseArrayList {
 		 * Store all the sorted data into one of the databases.
 		 * 
 		 */
-		ArrayList<String> Student = new ArrayList<>();
+		ArrayList<Integer> MyNumber = new ArrayList<>();
 		//add element to Arraylist
-		Student.add("Subhra");
-		Student.add("Alif");
-		Student.add("Fahmida");
-		Student.add("Ahmed");
-		Student.add("Nasir");
+		MyNumber.add(100);
+		MyNumber.add(200);
+		MyNumber.add(300);
+		MyNumber.add(400);
+		MyNumber.add(500);
 
 		//Print Array List
-		System.out.println("Retrieving elements from ArrayList: " + Student);
+		System.out.println("Retrieving elements from ArrayList: " + MyNumber);
 
 		//Using get method to peek the first element
-		System.out.println("Peek first element: " + Student.get(0));
+		System.out.println("Peek first element: " + MyNumber.get(0));
 
 		//remove element from ArrayList
-		System.out.println("Remove element at index 1: " + Student.remove(4));
+		System.out.println("Remove element at index 1: " + MyNumber.remove(4));
 
 		//Retrieving elements from ArrayList
-		System.out.println("Re-retrieving elements from ArrayList: " + Student);
+		System.out.println("Re-retrieving elements from ArrayList: " + MyNumber);
 
 		//Using 'forEach' loop
 		System.out.println("Use of for-each loop: ");
-		for (String st : Student) {
-			System.out.println(st);
+		for (Integer integer : MyNumber) {
+			System.out.println(integer);
 		}
 
 		//using iterator
 		System.out.println("Use of iterator using while loop: ");
-		Iterator it = Student.iterator();
+		Iterator it = MyNumber.iterator();
 		while (it.hasNext()) {
 
 			System.out.println(it.next());
 		}
 
 		//Sorting ArrayList
-		Collections.sort(Student);
-		System.out.println(Student);
+		Collections.sort(MyNumber);
+		System.out.println(MyNumber);
 		List list = new ArrayList();
-		list = Student;
+		list = MyNumber;
 
 		//Connect to MySql Database
 		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+		 //create a table in to Mysql
+		try {
+			connectToSqlDB.createTableFromStringToMySql2("Students","Number");
+
 
 		//Insert data in the database
-		connectToSqlDB.insertDataFromArrayListToSqlTable(Student,"Students","Name");
+		connectToSqlDB.insertDataFromArrayListToSqlTable(list,"Students","Number");
 
 		//Read data from database
 
-List<String> name = connectToSqlDB.readDataBase("Students","Name");
-		for (String st : name) {
+List<String> Number = connectToSqlDB.readDataBase("Students","Number");
+
+		for (String st : Number) {
 			System.out.println(st);
 		}
+	}catch (Exception e){
+			e.printStackTrace();
+		}
+
 	}
 
 }
