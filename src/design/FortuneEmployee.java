@@ -19,41 +19,55 @@ public class FortuneEmployee {
 	 **/
 	public static void main(String[] args) throws Exception{
 
-
+		EmployeeInfo emp = new EmployeeInfo();
 		EmployeeInfo emp1 = new EmployeeInfo(101);
 		EmployeeInfo emp2 = new EmployeeInfo("Subhra",102);
 		EmployeeInfo emp3 = new EmployeeInfo("Ratan",103, 30000);
 		EmployeeInfo emp4 = new EmployeeInfo("Yakub",104, 45000);
 
 
-		emp1.assignDepartment("Developer");
-		emp2.assignDepartment("Tester");
-		emp3.assignDepartment("Business Analyst");
-		emp4.assignDepartment("Preject Manager");
+		System.out.println("THis is Empolyee no 1 And  his Assigned Dept. is => " + emp1.assignDepartment("Developer"));
+		System.out.println("THis is Empolyee no 2 And  his Assigned Dept. is => " + emp2.assignDepartment("Tester"));
+		System.out.println("THis is Empolyee no 3 And  his Assigned Dept. is => " + emp3.assignDepartment("Business Analyst"));
+		System.out.println("THis is Empolyee no 4 And  his Assigned Dept. is => " + emp4.assignDepartment("Preject Manager"));
 
 
 
 
-EmployeeInfo.calculateEmployeeBonus(20000,6);
-EmployeeInfo.calculateEmployeePension(40000);
+/*EmployeeInfo.calculateEmployeeBonus(20000,6);
+EmployeeInfo.calculateEmployeePension(40000);*/
 
 		emp1.setSalary(10000);
 		emp1.calculateSalary(emp1.getSalary());
 		emp2.setSalary(20000);
 		emp2.calculateSalary(emp2.getSalary());
-		emp2.setSalary(30000);
+		emp3.setSalary(30000);
 		emp3.calculateSalary(emp3.getSalary());
 		emp4.setSalary(40000);
 		emp4.calculateSalary(emp4.getSalary());
 
-		emp1.setPerformance(5);
+		//emp1.setPerformance(5);
 		double bonus101 = emp1.calculateEmployeeBonus(emp1.getSalary(), emp1.getPerformance());
-		emp2.setPerformance(4);
+
+		//emp2.setPerformance(4);
 		double bonus102 = emp2.calculateEmployeeBonus(emp2.getSalary(), emp2.getPerformance());
-		emp3.setPerformance(3);
+
+		//emp3.setPerformance(3);
 		double bonus103 = emp3.calculateEmployeeBonus(emp3.getSalary(), emp3.getPerformance());
-		emp4.setPerformance(2);
+
+		//emp4.setPerformance(2);
 		double bonus104 = emp4.calculateEmployeeBonus(emp4.getSalary(), emp4.getPerformance());
+
+		emp.benefitLayout();
+
+		emp1.setSalary(10000);
+		double pension101 = emp1.calculateEmployeePension(emp1.getSalary());
+		emp2.setSalary(20000);
+		double pension102 = emp2.calculateEmployeePension(emp2.getSalary());
+		emp3.setSalary(30000);
+		double pension103 = emp3.calculateEmployeePension(emp3.getSalary());
+		emp4.setSalary(40000);
+		double pension104 = emp4.calculateEmployeePension(emp4.getSalary());
 
 
 		/*ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();

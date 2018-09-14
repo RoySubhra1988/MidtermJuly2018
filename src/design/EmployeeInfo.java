@@ -48,6 +48,8 @@ public class EmployeeInfo extends AbstractEmployee  {
 	 * you must have multiple constructor.
 	 * Must implement below constructor.
 	 */
+	public EmployeeInfo(){}
+
 	public EmployeeInfo(int employeeId) {
 		this.employeeID = employeeId;
 	}
@@ -78,15 +80,18 @@ public class EmployeeInfo extends AbstractEmployee  {
 
 		performence = 0;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Please Enter How Mny years worked");
+		System.out.println("Please Enter How Many years worked");
 		years = sc.nextInt();
 
 		if (years >= 5){
 			performence = .20;
+			System.out.println("Wow ! Excelent Performence and keep up the good work" );
 		}else if (years <= 4 && years >= 3){
 			performence = .10;
+			System.out.println("Good! Try more to keep up the good work" );
 		}else if (years <= 2 && years >= 1 ){
 			performence = .05;
+			System.out.println("You are almost there !!" );
 		}else {
 			System.out.println("Sorry Bonuses are only for employees that have worked more than a year");
 		}
@@ -120,16 +125,31 @@ public class EmployeeInfo extends AbstractEmployee  {
 		int start = Integer.parseInt(startYear);
 		int current = Integer.parseInt(currentYear);
 
-		if ((current - start) >= 5) {
-			total = salary * .05;
+		if ((current - start) >= 10 ) {
+			total = salary * .5;
+		}  else if ((current - start) == 9 )  {
+			    	total = salary * .4;
+		}
+		else if ((current - start) == 8 )  {
+			total = salary * .3;}
 
-		} else if ((current - start) >= 8) {
+		 else if ((current - start) == 7 ) {
+			total = salary * .25;
+		}
+		 else if ((current - start) == 6) {
+		 	total = salary * .2; }
+
+			else if ((current - start) == 5) {
 			total = salary * .1;
 
-		} else if ((current - start) <= 2) {
+
+		} else if ((current - start) <= 4) {
 			total = 0;
 			System.out.println("Sorry you have to work more than 5 years to be eligible for pension ! ");
+		}  else {
+			System.out.println("you have a problem");
 		}
+
 		System.out.println("Employee Pension is " + total + " $");
 		return total;
 	}
