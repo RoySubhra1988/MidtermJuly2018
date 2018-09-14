@@ -8,5 +8,6 @@ public class UnitTestingStudentProfile {
         Student student = new Student();
 
         Assert.assertEquals(student.getFirstName(), "Asif");
+    ;
     }
 }
